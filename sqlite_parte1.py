@@ -1,11 +1,16 @@
 import sqlite3
 
-banco = sqlite3.connect('primeiro_banco.db') #objeto de conecao com o DB
+try:
+    banco = sqlite3.connect('primeiro_banco.db') #objeto de conecao com o DB
 
-cursor = banco.cursor()
+    cursor = banco.cursor()
 
 
-cursor.execute("INSERT INTO pessoas VALUES('Tony', 30,'tony@gmail.com')")
+    cursor.execute("DELETE FROM pessoas WHERE idade = 45")
 
-banco.commit()
+    banco.commit()
+    banco.close()
+    print("Os dados foram removidos com sucesso!")
 
+except sqlite3.Error as erro:
+    print("Erro ao excluir: ",erro)
