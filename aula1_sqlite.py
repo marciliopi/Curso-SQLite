@@ -1,6 +1,6 @@
 import sqlite3
 
-banco = sqlite3.connect('primeiro_banco.db')
+banco = sqlite3.connect('primeiro_banco.db') #objeto de conecao com o DB
 
 cursor = banco.cursor()
 
